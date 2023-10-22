@@ -24,10 +24,10 @@ btn.addEventListener('click', (event) => {
 })
 
 gameBlock.addEventListener('click', (event) => {
-    if(event.target.classList.contains('ball' && 'square')) {
+    if(event.target.classList.contains('triangle')) {
         score++
         event.target.remove()
-        formFigure()
+        createtriangle()
     }
 })
 
@@ -36,7 +36,7 @@ function start() {
     interval = setInterval(() => {
         decreaseTime()
     }, 1000);
-    formFigure()
+    createtriangle()
     btn.disabled = true
 }
 
@@ -90,8 +90,8 @@ function createSquare() {
 }
 
 function createtriangle() {
-    let square = document.createElement('div')
-    square.classList.add('triangle')
+    let triangle = document.createElement('div')
+    triangle.classList.add('triangle')
     let size = sizeBall()
     let coor = gameBlock.getBoundingClientRect()
     let x = random(0, coor.width - size)
@@ -101,7 +101,7 @@ function createtriangle() {
     triangle.style.height = size + 'px'
     triangle.style.top = y + 'px'
     triangle.style.left = x + 'px'
-    triangle.style.background = randomColor()
+    triangle.style.color = randomColor()
     
     gameBlock.append(triangle)
 }
