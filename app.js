@@ -89,6 +89,23 @@ function createSquare() {
     gameBlock.append(square)
 }
 
+function createtriangle() {
+    let square = document.createElement('div')
+    square.classList.add('triangle')
+    let size = sizeBall()
+    let coor = gameBlock.getBoundingClientRect()
+    let x = random(0, coor.width - size)
+    let y = random(0, coor.height - size)
+
+    triangle.style.width = size + 'px'
+    triangle.style.height = size + 'px'
+    triangle.style.top = y + 'px'
+    triangle.style.left = x + 'px'
+    triangle.style.background = randomColor()
+    
+    gameBlock.append(triangle)
+}
+
 
 
 function random(min,max) {
